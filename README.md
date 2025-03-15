@@ -16,7 +16,7 @@ The REST API documentation can be found on [openexecprotocol.org](https://openex
 
 ```sh
 # install from PyPI
-pip install --pre oxp
+pip install oxp
 ```
 
 ## Usage
@@ -28,15 +28,16 @@ import os
 from oxp import Oxp
 
 client = Oxp(
-    bearer_token=os.environ.get("OXP_BEARER_TOKEN"),  # This is the default and can be omitted
+    bearer_token=os.environ.get("OXP_API_KEY"),  # This is the default and can be omitted
 )
 
-client.health.check()
+tool = client.tools.list()
+print(tool.items)
 ```
 
 While you can provide a `bearer_token` keyword argument,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `OXP_BEARER_TOKEN="My Bearer Token"` to your `.env` file
+to add `OXP_API_KEY="My Bearer Token"` to your `.env` file
 so that your Bearer Token is not stored in source control.
 
 ## Async usage
@@ -49,12 +50,13 @@ import asyncio
 from oxp import AsyncOxp
 
 client = AsyncOxp(
-    bearer_token=os.environ.get("OXP_BEARER_TOKEN"),  # This is the default and can be omitted
+    bearer_token=os.environ.get("OXP_API_KEY"),  # This is the default and can be omitted
 )
 
 
 async def main() -> None:
-    await client.health.check()
+    tool = await client.tools.list()
+    print(tool.items)
 
 
 asyncio.run(main())
@@ -122,7 +124,7 @@ from oxp import Oxp
 client = Oxp()
 
 try:
-    client.health.check()
+    client.tools.list()
 except oxp.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
@@ -165,7 +167,7 @@ client = Oxp(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).health.check()
+client.with_options(max_retries=5).tools.list()
 ```
 
 ### Timeouts
@@ -188,7 +190,7 @@ client = Oxp(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).health.check()
+client.with_options(timeout=5.0).tools.list()
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -229,11 +231,11 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from oxp import Oxp
 
 client = Oxp()
-response = client.health.with_raw_response.check()
+response = client.tools.with_raw_response.list()
 print(response.headers.get('X-My-Header'))
 
-health = response.parse()  # get the object that `health.check()` would have returned
-print(health)
+tool = response.parse()  # get the object that `tools.list()` would have returned
+print(tool.items)
 ```
 
 These methods return an [`APIResponse`](https://github.com/OpenExecProtocol/oxp-python/tree/main/src/oxp/_response.py) object.
@@ -247,7 +249,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.health.with_streaming_response.check() as response:
+with client.tools.with_streaming_response.list() as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():
