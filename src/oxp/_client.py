@@ -70,20 +70,20 @@ class Oxp(SyncAPIClient):
     ) -> None:
         """Construct a new synchronous Oxp client instance.
 
-        This automatically infers the `bearer_token` argument from the `OXP_BEARER_TOKEN` environment variable if it is not provided.
+        This automatically infers the `bearer_token` argument from the `OXP_API_KEY` environment variable if it is not provided.
         """
         if bearer_token is None:
-            bearer_token = os.environ.get("OXP_BEARER_TOKEN")
+            bearer_token = os.environ.get("OXP_API_KEY")
         if bearer_token is None:
             raise OxpError(
-                "The bearer_token client option must be set either by passing bearer_token to the client or by setting the OXP_BEARER_TOKEN environment variable"
+                "The bearer_token client option must be set either by passing bearer_token to the client or by setting the OXP_API_KEY environment variable"
             )
         self.bearer_token = bearer_token
 
         if base_url is None:
             base_url = os.environ.get("OXP_BASE_URL")
         if base_url is None:
-            base_url = f"https://api.example.com"
+            base_url = f"https://api.arcade.dev"
 
         super().__init__(
             version=__version__,
@@ -240,20 +240,20 @@ class AsyncOxp(AsyncAPIClient):
     ) -> None:
         """Construct a new async AsyncOxp client instance.
 
-        This automatically infers the `bearer_token` argument from the `OXP_BEARER_TOKEN` environment variable if it is not provided.
+        This automatically infers the `bearer_token` argument from the `OXP_API_KEY` environment variable if it is not provided.
         """
         if bearer_token is None:
-            bearer_token = os.environ.get("OXP_BEARER_TOKEN")
+            bearer_token = os.environ.get("OXP_API_KEY")
         if bearer_token is None:
             raise OxpError(
-                "The bearer_token client option must be set either by passing bearer_token to the client or by setting the OXP_BEARER_TOKEN environment variable"
+                "The bearer_token client option must be set either by passing bearer_token to the client or by setting the OXP_API_KEY environment variable"
             )
         self.bearer_token = bearer_token
 
         if base_url is None:
             base_url = os.environ.get("OXP_BASE_URL")
         if base_url is None:
-            base_url = f"https://api.example.com"
+            base_url = f"https://api.arcade.dev"
 
         super().__init__(
             version=__version__,
