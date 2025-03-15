@@ -1,6 +1,6 @@
 [project]
 name = "oxp"
-version = "0.0.1-alpha.1"
+version = "0.0.2"
 description = "The official Python library for the oxp API"
 dynamic = ["readme"]
 license = "MIT"

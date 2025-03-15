@@ -16,7 +16,7 @@ The REST API documentation can be found on [openexecprotocol.org](https://openex
 
 ```sh
 # install from PyPI
-pip install --pre oxp
+pip install oxp
 ```
 
 ## Usage
