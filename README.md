@@ -15,12 +15,9 @@ The REST API documentation can be found on [openexecprotocol.org](https://openex
 ## Installation
 
 ```sh
-# install from the production repo
-pip install git+ssh://git@github.com/OpenExecProtocol/oxp-python.git
+# install from PyPI
+pip install --pre oxp
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://app.stainless.com/docs/guides/publish), this will become: `pip install --pre oxp`
 
 ## Usage
 
