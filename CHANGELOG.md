@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1 (2025-03-17)
+
+Full Changelog: [v0.1.0...v0.1.1](https://github.com/OpenExecProtocol/oxp-python/compare/v0.1.0...v0.1.1)
+
+### Bug Fixes
+
+* **ci:** remove publishing patch ([#12](https://github.com/OpenExecProtocol/oxp-python/issues/12)) ([2910bc2](https://github.com/OpenExecProtocol/oxp-python/commit/2910bc21d18ae16a8cc999f8553d35eb7d4773d1))
+
 ## 0.1.0 (2025-03-17)
 
 Full Changelog: [v0.0.2...v0.1.0](https://github.com/OpenExecProtocol/oxp-python/compare/v0.0.2...v0.1.0)
