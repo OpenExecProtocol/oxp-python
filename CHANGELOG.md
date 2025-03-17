@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0 (2025-03-17)
+
+Full Changelog: [v0.0.2...v0.1.0](https://github.com/OpenExecProtocol/oxp-python/compare/v0.0.2...v0.1.0)
+
+### Features
+
+* CI fix ([43570f3](https://github.com/OpenExecProtocol/oxp-python/commit/43570f3352ea7cd28250e63f6efd87287bd7923e))
+
+
+### Bug Fixes
+
+* **ci:** ensure pip is always available ([#10](https://github.com/OpenExecProtocol/oxp-python/issues/10)) ([4594515](https://github.com/OpenExecProtocol/oxp-python/commit/4594515bd8c5500adfa6f6c511e86490b314426d))
+
 ## 0.0.2 (2025-03-15)
 
 Full Changelog: [v0.0.1-alpha.1...v0.0.2](https://github.com/OpenExecProtocol/oxp-python/compare/v0.0.1-alpha.1...v0.0.2)
