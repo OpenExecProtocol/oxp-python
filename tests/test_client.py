@@ -1630,7 +1630,7 @@ class TestAsyncOxp:
         import threading
 
         from oxp._utils import asyncify
-        from oxp._base_client import get_platform 
+        from oxp._base_client import get_platform
 
         async def test_main() -> None:
             result = await asyncify(get_platform)()
