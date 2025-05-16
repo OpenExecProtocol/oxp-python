@@ -1,6 +1,6 @@
 [project]
 name = "oxp"
-version = "0.1.1"
+version = "0.1.2"
 description = "The official Python library for the oxp API"
 dynamic = ["readme"]
 license = "MIT"
@@ -42,7 +42,7 @@ Repository = "https://github.com/OpenExecProtocol/oxp-python"
 managed = true
 # version pins are in requirements-dev.lock
 dev-dependencies = [
-    "pyright>=1.1.359",
+    "pyright==1.1.399",
     "mypy",
     "respx",
     "pytest",
@@ -147,6 +147,7 @@ exclude = [
 ]
 
 reportImplicitOverride = true
+reportOverlappingOverload = false
 
 reportImportCycles = false
 reportPrivateUsage = false

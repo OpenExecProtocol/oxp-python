@@ -31,8 +31,8 @@ client = Oxp(
     bearer_token=os.environ.get("OXP_API_KEY"),  # This is the default and can be omitted
 )
 
-tool = client.tools.list()
-print(tool.items)
+tools = client.tools.list()
+print(tools.items)
 ```
 
 While you can provide a `bearer_token` keyword argument,
@@ -55,8 +55,8 @@ client = AsyncOxp(
 
 
 async def main() -> None:
-    tool = await client.tools.list()
-    print(tool.items)
+    tools = await client.tools.list()
+    print(tools.items)
 
 
 asyncio.run(main())
